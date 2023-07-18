@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+            text-align: center;
+            font-size: 48px;
+            margin-top: 200px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="time"></h2>
+</body>
+<script>
+    function stopWatch() {
+        var oTime = new Date();
+        var sAMPM = oTime.getHours() >= 12 ? "PM" : "AM";
+        var sHourZero = oTime.getHours() >= 12 && oTime.getHours() < 22 ? "0" : " ";
+        var sMintZero = oTime.getMinutes() < 10 ? "0" : " ";
+        var sSecZero = oTime.getSeconds() < 10 ? "0" : " ";
+        var nHour = oTime.getHours() > 12 ? oTime.getHours() - 12 : oTime.getHours();
+        var sMS = ":" + sMintZero + oTime.getMinutes() + ":" + sSecZero + oTime.getSeconds() + " " + sAMPM;
+        document.getElementById("time").innerHTML = sHourZero + nHour + sMS;
+    }
+    setInterval(stopWatch, 1000);
+</script>
+
+</html>
